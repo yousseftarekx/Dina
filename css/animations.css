@@ -1,0 +1,20 @@
+/* ============================================================
+   animations.css — keyframes
+   ============================================================ */
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes beat{0%,100%{transform:scale(1)}14%{transform:scale(1.15)}28%{transform:scale(1)}42%{transform:scale(1.1)}}
+@keyframes breathe{0%,100%{transform:scale(1);opacity:.75}50%{transform:scale(1.12);opacity:1}}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-9px)}40%{transform:translateX(8px)}60%{transform:translateX(-6px)}80%{transform:translateX(4px)}}
+@keyframes eq{0%,100%{height:5px}50%{height:16px}}
+@keyframes slowzoom{from{transform:scale(1.06)}to{transform:scale(1.16)}}
+@keyframes scrollcue{0%{opacity:1;transform:translate(-50%,0)}70%{opacity:0;transform:translate(-50%,12px)}100%{opacity:0}}
+@keyframes pageIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes pageOut{to{opacity:0;transform:translateY(-12px)}}
+@keyframes lbIn{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:none}}
+@keyframes film{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes flick{from{transform:translateX(-50%) scaleY(1) rotate(-2deg)}to{transform:translateX(-50%) scaleY(1.12) rotate(2deg)}}
+@keyframes bounceIn{0%{opacity:0;transform:translateY(40px) scale(.8)}60%{transform:translateY(-6px) scale(1.04)}100%{opacity:1;transform:none}}
+@keyframes fadeUp{0%{opacity:0;transform:translateY(24px);filter:blur(6px)}100%{opacity:1;transform:none;filter:blur(0)}}
+@keyframes floatUp{to{transform:translateY(-110vh) rotate(360deg);opacity:0}}
+@keyframes twinkle{0%,100%{opacity:.2}50%{opacity:1}}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}

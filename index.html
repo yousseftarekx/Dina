@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0d0a12" />
+  <title>ya Dina</title>
+  <meta name="description" content="3alam soghayar 3amalto 3ashanek enti bs." />
+
+  <link rel="preload" href="assets/vendor/cormorant.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/vendor/manrope.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="assets/vendor/fonts.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body data-locked="true">
+
+  <!-- Custom cursor -->
+  <div id="cursor" aria-hidden="true">
+    <span class="cursor-dot"></span>
+    <span class="cursor-ring"></span>
+  </div>
+
+  <!-- Ambient + fx canvases -->
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+  <canvas id="fx-canvas" aria-hidden="true"></canvas>
+  <div id="grain" aria-hidden="true"></div>
+  <div id="vignette" aria-hidden="true"></div>
+
+  <!-- Loading screen -->
+  <div id="loader" role="status" aria-label="Loading">
+    <div class="loader-inner">
+      <svg class="loader-heart" viewBox="0 0 32 29" width="64" height="58" aria-hidden="true">
+        <path d="M16 29S1 19 1 9.5A7.5 7.5 0 0 1 16 6a7.5 7.5 0 0 1 15 3.5C31 19 16 29 16 29z"/>
+      </svg>
+      <div class="loader-bar"><span></span></div>
+      <p class="loader-note">ba3mel 7aga 3ashanek…</p>
+    </div>
+  </div>
+
+  <!-- Password lock -->
+  <section id="lock" hidden>
+    <div class="lock-glow"></div>
+    <div class="lock-card glass">
+      <p class="lock-kicker">di leeki enti bs</p>
+      <h1 class="lock-title">ahlan ya Dina.</h1>
+      <p class="lock-sub">feeh 7aga kbeera wara el 2efl el soghayar da. w ana 3aref enek 3arfa el mefta7.</p>
+      <form id="lock-form" autocomplete="off" novalidate>
+        <div class="pin" id="pin" role="group" aria-label="Four digit code">
+          <input class="pin-box" inputmode="numeric" maxlength="1" aria-label="digit 1" />
+          <input class="pin-box" inputmode="numeric" maxlength="1" aria-label="digit 2" />
+          <input class="pin-box" inputmode="numeric" maxlength="1" aria-label="digit 3" />
+          <input class="pin-box" inputmode="numeric" maxlength="1" aria-label="digit 4" />
+        </div>
+        <p class="lock-hint" id="lock-hint">el hint: el youm elly etwaladty fih. arba3 ar2am bs 🎂</p>
+        <button type="button" class="lock-reveal" id="lock-reveal">eddiny hint aghar</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- App shell -->
+  <div id="app" hidden>
+    <header id="nav">
+      <a class="brand" href="#/home" data-link>
+        <span class="brand-mark">D</span>
+        <span class="brand-word">3ashan Dina</span>
+      </a>
+      <button id="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <nav id="nav-links" aria-label="Sections">
+        <a href="#/home" data-link>el bidaya</a>
+        <a href="#/story" data-link>7ekayetna</a>
+        <a href="#/reasons" data-link>3ashan enti</a>
+        <a href="#/letters" data-link>gawabat</a>
+        <a href="#/gallery" data-link>sowarek</a>
+        <a href="#/dreams" data-link>a7lam</a>
+        <a href="#/birthday" data-link class="nav-cta">3eed miladek</a>
+      </nav>
+    </header>
+
+    <div id="scroll-progress" aria-hidden="true"><span></span></div>
+
+    <main id="view" tabindex="-1"></main>
+
+    <!-- Floating music player -->
+    <div id="player" class="glass" data-collapsed="true" aria-label="Music player">
+      <button id="player-toggle" class="player-fab" aria-label="Open music player">
+        <span class="eq"><i></i><i></i><i></i><i></i></span>
+      </button>
+      <div class="player-body">
+        <div class="player-art">
+          <div class="player-disc"><span></span></div>
+        </div>
+        <div class="player-meta">
+          <p class="player-song" id="player-song">—</p>
+          <p class="player-artist" id="player-artist">dos play</p>
+          <div class="player-seek"><div class="player-seek-fill" id="seek-fill"></div><input id="seek" type="range" min="0" max="1000" value="0" aria-label="Seek" /></div>
+          <div class="player-time"><span id="t-cur">0:00</span><span id="t-dur">0:00</span></div>
+        </div>
+        <div class="player-controls">
+          <button id="prev" aria-label="Previous">⏮</button>
+          <button id="play" class="play" aria-label="Play">▶</button>
+          <button id="next" aria-label="Next">⏭</button>
+        </div>
+        <div class="player-vol">
+          <span aria-hidden="true">♪</span>
+          <input id="vol" type="range" min="0" max="100" value="70" aria-label="Volume" />
+        </div>
+        <ul class="player-list" id="player-list"></ul>
+      </div>
+    </div>
+
+    <button id="to-top" aria-label="Back to top">↑</button>
+  </div>
+
+  <audio id="audio" preload="none"></audio>
+
+  <!-- Lightbox -->
+  <div id="lightbox" hidden>
+    <button class="lb-close" aria-label="Close">✕</button>
+    <button class="lb-prev" aria-label="Previous">‹</button>
+    <figure class="lb-fig"><img id="lb-img" alt="" /><figcaption id="lb-cap"></figcaption></figure>
+    <button class="lb-next" aria-label="Next">›</button>
+  </div>
+
+  <div id="toast" aria-live="polite"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/effects.js"></script>
+  <script src="js/player.js"></script>
+  <script src="js/pages.js"></script>
+  <script src="js/router.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

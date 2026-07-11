@@ -1,0 +1,22 @@
+MUSIC GOES IN THIS FOLDER
+=========================
+
+The player is already built and wired up. It just needs the actual song
+files. I can't include them because they're copyrighted, so grab your own
+copies (you probably already have them) and drop them in here with these
+EXACT names:
+
+    khalik-maaya.mp3       ->  Khalik Maaya  (Amr Diab)
+    yama-sawa.mp3          ->  Yama Sawa      (Cairokee)
+    msh-kol-marra.mp3      ->  Msh Kol Marra  (Wegz & Nasser)
+
+That's it. Refresh the page and the player plays them, in order, with
+working play / pause / next / previous / volume / seek / song picker,
+and it keeps playing while she moves between pages.
+
+Want different songs, more songs, or different names?
+Open  js/data.js  and edit the SONGS list near the top. The player builds
+itself from whatever you put there.
+
+Note: .mp3 is the safest format for browsers. .m4a and .ogg usually work
+too. Avoid weird formats.
