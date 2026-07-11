@@ -45,10 +45,9 @@ labeled, safe to edit. In particular:
   the specifics left soft. Swap in your actual moments: how you really met,
   the first "oh no I like them", the real turning point. This is the single
   highest-impact edit.
-- **`REASONS`** – 105 of them. They're written to feel true, but a handful
-  assume little habits (stealing blankets, arguing with the TV). Keep the ones
-  that fit, rewrite any that don't into things *she* actually does. Even
-  changing 10 of them to real specifics makes the whole list land harder.
+- **`REASONS`** – 51 of them, all written by Youssef himself (nothing generic).
+  Add more anytime by copying the same `{ t: "...", tag:"heart|funny|tiny" }`
+  shape.
 - **`LETTERS`** – five letters. Read them. Change any line that isn't how you'd
   say it. Sign them how you actually sign things to her.
 - **`PHOTOS`** captions, **`DREAMS`**, **`WISHES`** – all editable there too.
@@ -74,7 +73,7 @@ Easiest way to give her a real link:
 - **Password lock** → loading → the site.
 - **Home** cinematic hero, a live count, section doors.
 - **Our Story** animated timeline.
-- **Reasons** 105 cards, filterable (soft / funny / tiny things).
+- **Reasons** 51 cards, filterable (soft / funny / tiny things).
 - **Letters** five envelopes that open into handwritten letters.
 - **Memories** four gallery styles (wall, polaroids, film strip, heart) + lightbox.
 - **Dreams** future cards + birthday wishes.
